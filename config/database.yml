@@ -5,6 +5,7 @@ default: &default
   host: localhost
   username: postgres
   password: password
+  
 
 development:
   <<: *default
