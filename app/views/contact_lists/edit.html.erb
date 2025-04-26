@@ -1,0 +1,10 @@
+<h1>Editing contact list</h1>
+
+<%= render "form", contact_list: @contact_list %>
+
+<br>
+
+<div>
+  <%= link_to "Show this contact list", @contact_list %> |
+  <%= link_to "Back to contact lists", contact_lists_path %>
+</div>
