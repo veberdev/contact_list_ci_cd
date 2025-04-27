@@ -4,10 +4,8 @@
 #
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
-name: "Ruby on Rails CI/CD"
+name: "Ruby on Rails CI"
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 jobs:
@@ -39,26 +37,4 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
-  deliver:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Simulando Continuous Delivery
-        uses: actions/upload-artifact@v4
-        with:
-          name: projetozipado
-          path: |
-            README.md
-            app/
-            config/
-  deploy:
-    runs-on: ubuntu-latest
-    needs: deliver
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: projetozipado
-      - name: Display structure of downloaded files
-        run: ls -R
+    
